@@ -1,0 +1,12 @@
+#!/bin/bash
+source ~/bin/dbinfo
+execute=""
+if [ "x$1" == "x" ]; then
+  execute="mysql -h $host -u $dbuser -p $db "
+else
+  execute="mysql -h $host -u $dbuser -p $db --execute=\"$1\""
+fi
+date
+echo $execute
+eval $execute
+date
