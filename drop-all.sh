@@ -1,5 +1,6 @@
+#!/bin/bash
+
 source ~/bin/dbinfo
-date
 
 MUSER=$dbuser
 MDB=$db 
@@ -36,6 +37,8 @@ then
  exit 3
 fi
  
+date
+echo "starting"
 # let us do it
 for t in $TABLES
 do
@@ -43,3 +46,5 @@ do
  $MYSQL -u $MUSER -p$MPASS -h $MHOST $MDB -e "drop table $t"
 done
 date
+echo "done"
+exit 0
